@@ -1,8 +1,0 @@
-import{d as a,u as t,o,J as n}from"./index.bea93e38.js";const r=n(`<h1 class="page-title">About CatPrez</h1><p> CatPrez is a read-only web delivery system - web pages and API - for DCAT catalogues and resources. It complies with <a href="https://w3c.github.io/dx-connegp/connegp/" target="_blank" rel="noopener noreferrer">Content Negotiation by Profile</a>. </p><p> Many instances of CatPrez are public and in production. See the <a href="http://rdflib.dev/prez">Prez documentation</a> for details. </p><h2>Use</h2><p> The basic structure of CatPrez is: </p><pre style="background-color:white;">                /                               - API Home
-
-                /catalog                        - list of Catalogues
-
-                /catalog/{id}                   - a Catalogue
-
-                /catalog/{id}/{resource-id}     - Resource within a Catalogue
-            </pre><p>Navigation to any of those endpoints delivers content in HTML, for humans, and multiple <a href="https://www.w3.org/RDF/">RDF</a> formats, for machines.</p><p> This API provides <em>alternate profiles</em> of all content, so a the information is resented according to several different data models. </p><p> There are also convenience endpoints for searching and applying basic text or more advanced SPARQL queries. </p><p> CatPrez&#39; data is all natively stored in RDF graph form, according to the profile of DCAT and, optionally, according to other data models too, if implemented. </p>`,10),d=a({__name:"CatPrezAboutView",setup(i){const e=t();return o(()=>{e.rightNavConfig={enabled:!1},document.title="About CatPrez | Prez",e.pageHeading={name:"CatPrez",url:"/c"},e.breadcrumbs=[{name:"CatPrez",url:"/c"},{name:"About",url:"/c/about"}]}),(s,c)=>r}});export{d as default};

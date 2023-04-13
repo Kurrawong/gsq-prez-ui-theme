@@ -3,17 +3,42 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="/qld-resources-prez-ui/favicon.ico">
+    <link rel="icon" href="/qld-resources-prez-ui/theme/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prez</title>
     <script src="https://kit.fontawesome.com/5660b8b2a9.js" crossorigin="anonymous"></script>
     <link href="https://unpkg.com/@triply/yasgui/build/yasgui.min.css" rel="stylesheet" type="text/css" />
-  <script type="module" crossorigin src="/qld-resources-prez-ui/assets/index.bea93e38.js"></script>
-  <link rel="stylesheet" href="/qld-resources-prez-ui/assets/index.9d88b976.css">
+    <link rel="stylesheet" href="/qld-resources-prez-ui/style.css">
+    <link rel="stylesheet" href="/qld-resources-prez-ui/theme/theme.css">
+  <script type="module" crossorigin src="/qld-resources-prez-ui/assets/index.f0fef75a.js"></script>
+  <link rel="stylesheet" href="/qld-resources-prez-ui/assets/index.3c41f385.css">
 </head>
 
 <body>
+    <header id="header"></header>
     <div id="app"></div>
+    <footer id="footer"></footer>
+    <script>
+        fetch("/theme/header.html")
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                }
+            })
+            .then(text => {
+                document.querySelector("#header").innerHTML = text;
+            });
+        
+        fetch("/theme/footer.html")
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                }
+            })
+            .then(text => {
+                document.querySelector("#footer").innerHTML = text;
+            });
+    </script>
     
 </body>
 
