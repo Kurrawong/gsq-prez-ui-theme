@@ -4,7 +4,7 @@ import FlavourHome from "@/components/FlavourHome.vue";
 
 const links = [
   {
-    label: "Vocabs",
+    label: "Vocabularies",
     url: "/v/vocab",
     description: "A list of SKOS vocabularies",
   },
@@ -110,7 +110,7 @@ const links = [
     </p>
     <h2>Search and Querying</h2>
     <p>
-      You can search for Concepts within one vocabularies or across all vocabs by using
+      You can search for Concepts within one vocabularies or across all vocabularies by using
       the search bar below or the
       <RouterLink to="/search">Advanced Search page</RouterLink>, or perform
       SPARQL queries using the
