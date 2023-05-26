@@ -23,6 +23,7 @@ stack-load:
 	docker-compose --profile db up -d
 	docker-compose run -e FUSEKI_URL=http://fuseki:3030 -e FUSEKI_USER=admin -e FUSEKI_PASSWORD=admin data-loader
 	docker-compose --profile db down
+	docker-compose rm data-loader
 
 stack-up:
 	docker-compose --profile stack up -d
