@@ -33,3 +33,9 @@ stack-down:
 
 stack-ui:
 	docker-compose build prez-ui && docker-compose stop prez-ui && docker-compose rm -f prez-ui && make stack-up
+
+db-up:
+	docker-compose --profile db up -d
+
+db-down:
+	docker-compose --profile db down
