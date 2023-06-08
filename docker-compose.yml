@@ -50,6 +50,7 @@ services:
       - stack
 
   data-loader:
+    container_name: data-loader
     build:
       context: .
       dockerfile: data-loader.Dockerfile
