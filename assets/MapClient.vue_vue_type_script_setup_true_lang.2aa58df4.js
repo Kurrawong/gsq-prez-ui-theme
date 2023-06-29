@@ -1,4 +1,4 @@
-import{d as nt,i as it,x as st,Z as rt,y as ot,e as at,b as K,O as lt,$ as ct,N as ht,h as ut}from"./index.818176dd.js";/* @preserve
+import{d as nt,i as it,x as st,Z as rt,y as ot,e as at,b as K,O as lt,$ as ct,N as ht,h as ut}from"./index.e25ce7c1.js";/* @preserve
 * @terraformer/wkt - v2.1.1 - MIT
 * Copyright (c) 2012-2022 Environmental Systems Research Institute, Inc.
 * Tue Aug 02 2022 14:23:50 GMT-0700 (Pacific Daylight Time)
@@ -14,7 +14,7 @@ PREFIX unit: <http://www.opengis.net/def/uom/OGC/1.0/>
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX void: <http://rdfs.org/ns/void#>
 PREFIX prez: <https://prez.dev/>
-`,ft=(e,n)=>` <${e}> <${n.spatial.membershipRelationship}> ?f_uri . 
+`,ft=(e,n)=>`<${e}> <${n.spatial.membershipRelationship}> ?f_uri . 
 <${e}> <${n.props.fcLabel}> ?fc_label
 `,dt=(e,n,t,s)=>`${gt}
 SELECT ?f_uri ?wkt ?fc_label ?f_label
