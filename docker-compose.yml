@@ -1,6 +1,6 @@
 services:
   fuseki:
-    image: ghcr.io/kurrawong/fuseki-geosparql:git-main-23a3a84d
+    image: ghcr.io/kurrawong/fuseki-geosparql:git-main-e642d849
     environment:
       - JAVA_OPTS=-Xms512m -Xmx2048m
     ports:
@@ -12,12 +12,11 @@ services:
       - stack
 
   prez:
-    image: ghcr.io/rdflib/prez:3.2.0
+    image: ghcr.io/rdflib/prez:3.3.0
     ports:
       - 8000:8000
     environment:
-      - VOCPREZ_SPARQL_ENDPOINT=http://fuseki:3030/gsq
-      - SPACEPREZ_SPARQL_ENDPOINT=http://fuseki:3030/gsq
+      - SPARQL_ENDPOINT=http://fuseki:3030/gsq
     depends_on:
       - fuseki
     healthcheck:
