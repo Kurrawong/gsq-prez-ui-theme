@@ -1,0 +1,1 @@
+import{u as i}from"./index.e4d92927.js";const s=i();function a(){return new Promise((e,t)=>{let r=setTimeout(t,2e4);(function o(){if(Object.keys(s.profiles).length>0)return clearTimeout(r),e();setTimeout(o,500)})()})}function u(e){navigator.clipboard.writeText(e.trim())}function c(e){return e.charAt(0).toUpperCase()+e.slice(1).toLowerCase()}export{u as c,a as e,c as t};
