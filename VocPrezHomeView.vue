@@ -31,7 +31,7 @@ const links = [
 
     <ul>
       <li>
-        <RouterLink to="/v/vocab">All Vocabs</RouterLink>
+        <a href="#all-vocabs">All Vocabs</a>
       </li>
       <li>
         <a href="#geochem-vocabs">Geochem Vocabs</a>
@@ -42,6 +42,8 @@ const links = [
     </ul>
 
     <h3>Vocab Groups</h3>
+
+    <h4 id="all-vocabs">All Vocabs</h4>
 
     <p>
       See <RouterLink to="/v/vocab">All Vocabs</RouterLink> for the vocabs
@@ -456,6 +458,7 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  margin: 1.25rem 1.25rem;
 }
 
 td,
