@@ -7,6 +7,9 @@ echo "Creating Fuseki datasets..."
 python create_fuseki_dataset.py
 
 echo "Loading data into Fuseki..."
+kurra fuseki upload /app/qldgeofeatures-dataset/qldgeofeatures.ttl http://localhost:3030/gsq
+kurra fuseki upload /app/qldgeofeatures-dataset/background-onts http://localhost:3030/gsq
+kurra fuseki upload /app/vocabularies/background-onts http://localhost:3030/gsq
 python data_loader.py
 echo "Loading data finished."
 

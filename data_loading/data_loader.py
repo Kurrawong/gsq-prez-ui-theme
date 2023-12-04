@@ -7,8 +7,8 @@ from rich.progress import track
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import DCTERMS, RDFS, RDF, SKOS
 
-SPATIAL_DATA_FILE_PATH_ROOT = Path("/app/qldgeofeatures-dataset/qldgeofeatures.ttl")
-SPATIAL_DATA_BACKGROUND_ONT_ROOT = Path("/app/qldgeofeatures-dataset/background-onts")
+# SPATIAL_DATA_FILE_PATH_ROOT = Path("/app/qldgeofeatures-dataset/qldgeofeatures.ttl")
+# SPATIAL_DATA_BACKGROUND_ONT_ROOT = Path("/app/qldgeofeatures-dataset/background-onts")
 VOCAB_DATA_BACKGROUND_ONT_ROOT = Path("/app/vocabularies/background-onts")
 VOCAB_DATA_FILE_PATH_ROOT = "/app/vocabularies"
 VOCAB_DATA_FILE_GLOB_PATTERN = "vocabularies-*"
@@ -41,7 +41,7 @@ async def main() -> None:
     async with httpx.AsyncClient() as http_client:
         url = f"{FUSEKI_URL}/{FUSEKI_DATASET_NAME}"
 
-        files += list(SPATIAL_DATA_BACKGROUND_ONT_ROOT.glob("**/*.ttl"))
+        # files += list(SPATIAL_DATA_BACKGROUND_ONT_ROOT.glob("**/*.ttl"))
         files += list(VOCAB_DATA_BACKGROUND_ONT_ROOT.glob("**/*.ttl"))
 
         directories = Path(VOCAB_DATA_FILE_PATH_ROOT).glob(VOCAB_DATA_FILE_GLOB_PATTERN)
@@ -54,42 +54,6 @@ async def main() -> None:
         graph = Graph()
         for file in files:
             graph.parse(file)
-
-        PREZ = Namespace("https://prez.dev/")
-        identifiers_graph = Graph()
-        identifiers_graph.bind("dcterms", DCTERMS)
-        identifiers_graph.bind("prez", PREZ)
-
-        print("Generating identifiers...")
-        subjects = set(graph.subjects(None, None))
-        for subject in subjects:
-            local_name = subject.split("#")[-1].split("/")[-1]
-            base_name = subject.replace(local_name, "")
-            prefix = base_name[:-1].split("/")[-1]
-            identifiers_graph.add(
-                (
-                    subject,
-                    DCTERMS.identifier,
-                    Literal(f"{prefix}:{local_name}", datatype=PREZ.slug),
-                )
-            )
-
-        print("Uploading identifiers.ttl and support graphs...")
-        identifiers_file = Path("identifiers.ttl")
-        identifiers_graph.serialize(identifiers_file, format="turtle")
-
-        await upload_file(
-            url, f"urn:file:{identifiers_file.name}", identifiers_file, http_client
-        )
-
-        support_graph = Graph()
-        concept_schemes = graph.subjects(RDF.type, SKOS.ConceptScheme)
-        for concept_scheme in concept_schemes:
-            support_graph.add((PREZ.SchemesList, RDFS.member, concept_scheme))
-
-        collections = graph.subjects(RDF.type, SKOS.Collection)
-        for collection in collections:
-            support_graph.add((PREZ.VocPrezCollectionList, RDFS.member, collection))
 
         # Specify SpacePrez profile label for dataset and feature collection.
         spaceprez_graph = Graph()
@@ -146,12 +110,12 @@ async def main() -> None:
             http_client,
         )
 
-        await upload_file(
-            url,
-            f"urn:file:{SPATIAL_DATA_FILE_PATH_ROOT.name}",
-            SPATIAL_DATA_FILE_PATH_ROOT,
-            http_client,
-        )
+        # await upload_file(
+        #     url,
+        #     f"urn:file:{SPATIAL_DATA_FILE_PATH_ROOT.name}",
+        #     SPATIAL_DATA_FILE_PATH_ROOT,
+        #     http_client,
+        # )
 
 
 if __name__ == "__main__":
