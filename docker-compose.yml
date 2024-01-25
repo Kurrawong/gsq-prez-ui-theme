@@ -12,7 +12,7 @@ services:
       - stack
 
   prez:
-    image: ghcr.io/rdflib/prez:3.8.1
+    image: ghcr.io/rdflib/prez:3.8.4
     ports:
       - 8000:8000
     environment:
