@@ -4,6 +4,7 @@ git clone --depth 1 https://github.com/geological-survey-of-queensland/vocabular
 if [ -n "$GSQ_DATA_BRANCH" -a -n "$GSQ_DATA_PR" ]; then
   pushd vocabularies
   git fetch origin pull/${GSQ_DATA_PR}/head:${GSQ_DATA_BRANCH}
+  git checkout ${GSQ_DATA_BRANCH}
   popd
 fi
 git clone --depth 1 --branch v1.0 https://github.com/geological-survey-of-queensland/qldgeofeatures-dataset.git
