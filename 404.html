@@ -19,7 +19,9 @@
     <div id="app"></div>
     <div id="footer"></div>
     <script>
-        fetch("/theme/header.html")
+        var BASE_URL = "/";
+
+        fetch(`${BASE_URL}theme/header.html`)
             .then(response => {
                 if (response.ok) {
                     return response.text();
@@ -28,8 +30,7 @@
             .then(text => {
                 document.querySelector("#header").innerHTML = text;
             });
-        
-        fetch("/theme/footer.html")
+        fetch(`${BASE_URL}theme/footer.html`)
             .then(response => {
                 if (response.ok) {
                     return response.text();
