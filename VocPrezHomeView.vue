@@ -62,7 +62,7 @@ const links = [
     <p>
       All of GSQ's vocabularies are managed by testing their conformance to a
       profile of SKOS, the so-called
-      <a href="https://w3id.orf/profile/vocpub">VocPub Profile</a> .
+      <a href="https://linked.data.gov.au/def/vocpub">VocPub Profile</a> .
     </p>
     <p>
       This profile sets requirements for basic annotations of elements of SKOS,
